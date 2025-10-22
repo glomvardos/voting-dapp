@@ -19,3 +19,11 @@ pub struct InitializePoll<'info> {
 
     pub system_program: Program<'info, System>
 }
+
+pub fn initialize_poll_handler(ctx: Context<InitializePoll>, poll_id: u64, description: String, poll_start: u64, poll_end: u64) -> Result<()> {
+  let poll = Poll::new(poll_id, description, poll_start, poll_end, 0);
+
+  ctx.accounts.poll.set_inner(poll);
+  
+  Ok(())
+}
