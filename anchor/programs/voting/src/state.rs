@@ -11,3 +11,21 @@ pub struct Poll {
     pub poll_end: u64,
     pub candidate_amount: u64,
 }
+
+impl Poll {
+    pub fn new(
+        poll_id: u64,
+        description: String,
+        poll_start: u64,
+        poll_end: u64,
+        candidate_amount: u64,
+    ) -> Self {
+        Self {
+            poll_id,
+            description,
+            poll_start,
+            poll_end,
+            candidate_amount,
+        }
+    }
+}
