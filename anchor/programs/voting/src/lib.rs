@@ -31,4 +31,16 @@ pub mod voting {
     ) -> Result<()> {
         update_poll_description_handler(ctx, description)
     }
+
+    pub fn initialize_candidate(
+        ctx: Context<InitializeCandidate>,
+        candidate_name: String,
+        _poll_id: u64,
+    ) -> Result<()> {
+        initialize_candidate_handler(ctx, candidate_name)
+    }
+
+    pub fn vote(ctx: Context<Vote>, _candidate_name: String, _poll_id: u64) -> Result<()> {
+        vote_handler(ctx)
+    }
 }

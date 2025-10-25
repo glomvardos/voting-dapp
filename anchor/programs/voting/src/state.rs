@@ -29,3 +29,22 @@ impl Poll {
         }
     }
 }
+
+#[account]
+#[derive(InitSpace)]
+
+pub struct Candidate {
+    #[max_len(CANDIDATE_NAME_MAX_LENGTH)]
+    pub candidate_name: String,
+
+    pub candidate_votes: u64,
+}
+
+impl Candidate {
+    pub fn new(candidate_name: String, candidate_votes: u64) -> Self {
+        Self {
+            candidate_name,
+            candidate_votes,
+        }
+    }
+}

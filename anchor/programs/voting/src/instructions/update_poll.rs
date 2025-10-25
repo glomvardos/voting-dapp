@@ -5,7 +5,7 @@ use crate::state::*;
 #[derive(Accounts)]
 #[instruction(poll_id: u64)]
 pub struct UpdatePollDescription<'info> {
-    #[account(mut)]
+    #[account()]
     pub payer: Signer<'info>,
 
     #[account(mut, seeds = [poll_id.to_le_bytes().as_ref()], bump)]
